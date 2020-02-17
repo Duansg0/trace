@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>duansg-trace</artifactId>
+        <groupId>org.duansg.trace</groupId>
+        <version>1.0.3</version>
+    </parent>
+    <artifactId>duansg-trace-pv-autoconfiguration</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.duansg.trace</groupId>
+            <artifactId>duansg-trce-core</artifactId>
+            <version>${duansg-trce-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.2.1.RELEASE</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>

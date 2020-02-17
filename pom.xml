@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>melot-planet</artifactId>
+        <groupId>com.melot.planet</groupId>
+        <version>1.0.0-RELEASE</version>
+    </parent>
+    <groupId>org.duansg.trace</groupId>
+    <artifactId>duansg-trace</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.3</version>
+
+    <properties>
+        <duansg-trce-core.version>1.0.3</duansg-trce-core.version>
+        <duansg-trce-dao.version>1.0.3</duansg-trce-dao.version>
+        <duansg-trce-pv.version>1.0.3</duansg-trce-pv.version>
+        <duansg-trce-feign.version>1.0.3</duansg-trce-feign.version>
+    </properties>
+
+    <modules>
+        <module>duansg-trce-core</module>
+        <module>duansg-trace-dao-autoconfiguration</module>
+        <module>duansg-trace-pv-autoconfiguration</module>
+        <module>duansg-trace-dubbo-autoconfiguration</module>
+        <module>duansg-trace-feign-autoconfiguration</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.16.18</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>1.8.6</version>
+            </dependency>
+            <dependency>
+                <groupId>org.equilibriums.utils</groupId>
+                <artifactId>aop-utils-common</artifactId>
+                <version>1.0.0.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.8.0-beta2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.7</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>2.1.8.RELEASE</version>
+                <optional>true</optional>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

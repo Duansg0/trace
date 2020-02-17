@@ -1,0 +1,2 @@
+consumerTraceFilter=duansg.trace.dubbo.filter.DubboConsumerTraceFilter
+providerTraceFilter=duansg.trace.dubbo.filter.DubboProviderTraceFilter
