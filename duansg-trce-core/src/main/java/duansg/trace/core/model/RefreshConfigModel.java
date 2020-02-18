@@ -11,13 +11,30 @@ import org.springframework.context.ApplicationEvent;
  */
 public class RefreshConfigModel extends ApplicationEvent {
 
+    @Getter
+    @Setter
+    private String type;
     /**
-     * @desc dao/pv开关
+     * @desc 总开关
      * @desc key:spring.boot.trace.traceSwitch
      */
     @Getter
     @Setter
     private boolean traceSwitch;
+    /**
+     * @desc Dao开关
+     * @desc key:spring.boot.trace.traceSwitch.Dao
+     */
+    @Getter
+    @Setter
+    private boolean traceSwitchDao;
+    /**
+     * @desc Pv开关
+     * @desc key:spring.boot.trace.traceSwitch.Pv
+     */
+    @Getter
+    @Setter
+    private boolean traceSwitchPv;
     /**
      * @desc feign开关
      * @desc key:spring.boot.trace.traceSwitch.Feign
@@ -33,13 +50,6 @@ public class RefreshConfigModel extends ApplicationEvent {
     @Setter
     private boolean traceSwitchDubbo;
     /**
-     * @desc 全局开关
-     */
-    @Getter
-    @Setter
-    private boolean gobalSwitch;
-
-    /**
      * @param source
      */
     private RefreshConfigModel(Object source) {
@@ -52,10 +62,12 @@ public class RefreshConfigModel extends ApplicationEvent {
      */
     public RefreshConfigModel(Builder builder, Object source){
         super(source);
-        this.gobalSwitch = builder.gobalSwitch;
         this.traceSwitch = builder.traceSwitch;
         this.traceSwitchDubbo = builder.traceSwitchDubbo;
         this.traceSwitchFeign = builder.traceSwitchFeign;
+        this.traceSwitchDao = builder.traceSwitchDao;
+        this.traceSwitchPv = builder.traceSwitchPv;
+        this.type = builder.type;
     }
 
     /**
@@ -64,12 +76,16 @@ public class RefreshConfigModel extends ApplicationEvent {
      * @date
      */
     public static class Builder{
-
+        private String type;
         private boolean traceSwitch = false;
         private boolean traceSwitchFeign = false;
         private boolean traceSwitchDubbo = false;
-        private boolean gobalSwitch = false;
-
+        private boolean traceSwitchDao = false;
+        private boolean traceSwitchPv = false;
+        public Builder buildType(String type) {
+            this.type = type;
+            return this;
+        }
         public Builder buildTraceSwitch(boolean traceSwitch) {
             this.traceSwitch = traceSwitch;
             return this;
@@ -78,12 +94,16 @@ public class RefreshConfigModel extends ApplicationEvent {
             this.traceSwitchFeign = traceSwitchFeign;
             return this;
         }
-        public Builder buildTraceSwitchDubbo(boolean traceSwitchDubbo) {
-            this.traceSwitchDubbo = traceSwitchDubbo;
+        public Builder buildTraceSwitchDao(boolean traceSwitchDao) {
+            this.traceSwitchDao = traceSwitchDao;
             return this;
         }
-        public Builder buildGobalSwitch(boolean gobalSwitch) {
-            this.gobalSwitch = gobalSwitch;
+        public Builder buildTraceSwitchPv(boolean traceSwitchPv) {
+            this.traceSwitchPv = traceSwitchPv;
+            return this;
+        }
+        public Builder buildTraceSwitchDubbo(boolean traceSwitchDubbo) {
+            this.traceSwitchDubbo = traceSwitchDubbo;
             return this;
         }
         public RefreshConfigModel build(Object source) {

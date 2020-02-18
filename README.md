@@ -240,7 +240,22 @@ class TraceDaoCustomModel extends DigestModel{
 ###### 热加载
 
 ```java
-//TODO 已实现,待完善
+//继承TraceRefreshConfigPublish并注册，
+public abstract class TraceRefreshConfigPublish extends RefreshConfigPublish {
+    /**
+     * @desc TraceRefreshConfigPublish's logger.
+     */
+    private static final Logger logger = LoggerFactory.getLogger(TraceRefreshConfigPublish.class);
+
+    public void publishDao(boolean off) {
+        RefreshConfigModel model = new RefreshConfigModel.Builder()
+                .buildType(TraceCustomConstants.DAO)
+                .buildTraceSwitchDao(off)
+                .build(this);
+        publish(model);
+    }
+    //.....
+}
 ```
 
 ###### 示例
