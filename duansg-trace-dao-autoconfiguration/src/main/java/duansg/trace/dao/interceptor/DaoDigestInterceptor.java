@@ -5,9 +5,11 @@ import duansg.trace.core.constants.TraceConstants;
 import duansg.trace.core.enums.BoolEnum;
 import duansg.trace.core.model.DaoDigestModel;
 import duansg.trace.core.utils.LoggerFormatUtil;
+import duansg.trace.core.utils.TraceUtil;
 import lombok.Data;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
+import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.support.AopUtils;
@@ -45,7 +47,7 @@ public class DaoDigestInterceptor extends AbstractTraceInterceptor implements Me
                 String url = interfaces[0].getName() + "." + invocation.getMethod().getName();
                 long costTime = System.currentTimeMillis() - startTime;
                 DaoDigestModel daoDigestModel = new DaoDigestModel(appName, url, BoolEnum.get(isSuccess), costTime);
-                logDigest(daoDigestModel, digestLogger);
+                logDigest(daoDigestModel, digestLogger, TraceUtil.getPerprotey(TraceConstants.DIGEST_LOG_SWITCH_DAO));
             } catch (Throwable ignore) {
                 LoggerFormatUtil.error(ignore, logger, "Dao摘要日志发生了一个异常。请关注!");
             }

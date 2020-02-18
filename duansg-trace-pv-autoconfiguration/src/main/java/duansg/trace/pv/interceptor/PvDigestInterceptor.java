@@ -98,7 +98,7 @@ public class PvDigestInterceptor extends AbstractTraceInterceptor implements Han
                 costTime = System.currentTimeMillis() - startTime.get();
             }
             PvDigestModel pvDigestModel = new PvDigestModel(request.getRequestURI(), costTime,TraceConstants.MVC_FRAM_NAME, BoolEnum.get(isSuccess), appName);
-            logDigest(pvDigestModel, digestLogger);
+            logDigest(pvDigestModel, digestLogger,TraceUtil.getPerprotey(TraceConstants.DIGEST_LOG_SWITCH_PV));
         } catch (Throwable ignore) {
             // 抛出异常不影响业务执行
             LoggerFormatUtil.error(ignore, logger, "PV摘要日志发生了一个异常。请关注!,uri={0}.", request.getRequestURI());

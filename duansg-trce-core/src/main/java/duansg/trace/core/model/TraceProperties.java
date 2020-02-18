@@ -26,10 +26,6 @@ public class TraceProperties {
      */
     private String traceDaoExecution;
     /**
-     *
-     */
-    private String tracePvExecution;
-    /**
      * @desc 总开关
      * @desc key:spring.boot.trace.traceSwitch
      */

@@ -63,7 +63,7 @@ public class FeignDigestInterceptor extends AbstractTraceInterceptor implements 
                 }
                 requestTemplate.header(TraceConstants.TRACE_ID_KEY, traceId);
                 FeignDigestModel feignDigestModel = new FeignDigestModel(requestUrl, serviceUrl, TraceConstants.FEIGN_FRAM_NAME, appName);
-                logDigest(feignDigestModel, digestLogger);
+                logDigest(feignDigestModel, digestLogger,TraceUtil.getPerprotey(TraceConstants.DIGEST_LOG_SWITCH_FEIGN));
             }
         }catch (Throwable ignore) {
             LoggerFormatUtil.error(ignore, logger, "Feign摘要日志发生了一个异常。请关注!");

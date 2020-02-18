@@ -24,9 +24,9 @@ public abstract class AbstractTraceInterceptor {
      * @param digestModel
      * @param digestLogger
      */
-    protected void logDigest(DigestModel digestModel, Logger digestLogger) {
+    protected void logDigest(DigestModel digestModel, Logger digestLogger, Boolean off) {
         //判断摘要日志全局总开关
-        if (digestModel != null && TraceUtil.getPerprotey(TraceConstants.DIGEST_SWITCH)){
+        if (digestModel != null && TraceUtil.getPerprotey(TraceConstants.DIGEST_SWITCH)&&off){
             StringBuilder builder = new StringBuilder();
             String traceId = TraceUtil.getTraceId();
             traceId = StringUtils.isBlank(traceId) ? TraceConstants.EMPTY_DIGEST_VALUE : traceId;
